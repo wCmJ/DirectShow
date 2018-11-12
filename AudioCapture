@@ -1,0 +1,47 @@
+DirectShow  
+Audio Capture Filter
+waveInXXX APIs to control any device whose driver supports these APIs.
+
+each card on the system is represented by a separate instance of the filter.
+
+the audio capture filter exposes each input on the card, such as the microphone or the MIDI input, as an input pin.
+the input pins represent what the driver exposes as audio source lines.
+no data travels through these input pins, however, and they do not connect to other DirectShow filters.
+they simply provide a way for an application to control the inputs.
+the application can use an input pin to enable or disable the input, or to set mixing properties such as bass equalizatoin, treble equalization, pan, and so forth.
+the amount of control that is available depends on the driver. to fully understand and exploit the capabilities of a particular sound card, you will need the documentation from the card's manufacturer.
+summary:    the audio capture filter 
+                input pin
+                    control(enable or disable the input, set mixing properties) independency on the driver
+                        
+select an audio or video capture device:
+    use the System Device Enumerator(CoCreateInstance)
+    the system device enumerator returns a collection of device monikers, selected by device category.
+    a moniker is a COM object that contains information about another object.
+    moniker enable the application to get information about an object without actually creating the object.
+    Later, tha application can use the moniker to create the object.
+    
+
+a filter graph performs video or audio capture == a capture graph
+to build capture graph, DirectShow provides capture graph builder
+capture graph builder exposes the ICaptureGraphBuilder2 interface, which contains methods for building and controlling a capture graph.
+
+
+some video capture devices have separate output pins for preview and capture.
+the preview pin is used to render video to the screen, while the capture pin is used to write video to a file.
+a preview pin and acapture pin have the following differences:
+    1.  a preview pin drops frames as needed to maintain throughput on the capture pin.
+    2.  each frame from a capture pin is time-stamped with the stream time when the frame was captured
+        a preview pin does not time stamp the samples it delivers.
+
+
+
+
+
+
+
+
+
+
+
+
