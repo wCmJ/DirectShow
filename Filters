@@ -1,0 +1,26 @@
+Filters:    
+        read files
+        get video from a video capture device
+        decode various stream formats, such as MPEG-1 video
+        pass data to the graphics or sound card
+        
+filter graph: a set of connected filters
+
+filters are controlled by a high-level component called the Filter Graph Manager.
+the filter graph manager provides methods for the application to build the filter graph, by connecting the filters together.
+
+
+1. the application creates an instance of the filter graph manager
+2. the application uses the filter graph manager to build a filter graph. the exact set of filters in the graph will depend on the applition
+3.the application uses the filter graph manager to control the filter graph and stream data through the filters.
+
+CoInitialize: initialize the COM library
+CoCreateInstance: create the filter graph manager
+
+
+
+
+
+
+
+        
