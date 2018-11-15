@@ -1,0 +1,37 @@
+1.  multimedia streams contains large amounts of data, which must be processed very quickly
+2.  audio and video must be synchronized so that it starts and stops at the same time, and plays at the same rate
+3.  data can come from many sources, including local files, computer networks, television broadcasts, and video cameras
+4.  data comes in a variety of formats, AVI, ASF, MPEG, DV
+5.  the programmer does not know in advance what hardware devices will be present on the end-user's system
+
+
+windows driver model(WDM)
+
+                                                          Applications
+                                                          |          |
+                                             commands     |          |      enents  
+                                                          |          |             
+                                                           DirectShow
+                                                            
+                                                       Filter Graph Manager
+                                                        
+                                                source      transform     rendering
+                                                filters      filters      filters
+                                                        
+                                                        
+a source filter:
+
+a transform filter:
+
+renderer filters:   a video renderer(draws video frames on the display)
+                    a audio renderer(sends audio data to the sound card)
+                    a file-writer filter(writes data to a file)
+
+a splitter filter:  splits an input into two or more outputs.
+
+a mux filter:   takes multiple inputs and combines them into a single stream.
+
+
+
+
+
