@@ -1,0 +1,34 @@
+COM: component object model
+a standard, but language, structure, and implementation details are left to the application developer.
+a standard that applies after a program has been translated to binary machine code.
+COM specifies an object model and programming requirements that enable COM objects to interact with other objects.
+    these objects can be within a single process, in other processer, and can even be on remote computers.
+
+COM exposes its features through an interface which is sets of functions.
+Every interface has its own unique interface identifier, named an IID(interface identifier)
+IID is a GUID, which is the same as UUID defined by the Open Software Foundation Distributed Computing Environment(DCE).
+when you define a new interface, you must create a new identifier for that interface.
+when you define a new interface, you can create an interface definition by using the interface definition language(IDL)
+Microsoft IDL compiler generates header files for use by applications using the interface, and source code to handle remote procedure calls.
+
+A COM class is identified by using a unique 128-bit Class ID(CLSID is a GUID)
+All COM interfaces inherit from the IUnKnown interface.
+IUnKnown interface has three member functions: QueryInterface, AddRef, Realease
+
+A COM client is any caller that passes a CLSID to the system to request an instance of a COM object.
+the CoCreateInstance function creates one instance of the specified CLSID and returns an interface pointer of the type requested by the client.
+the CoGetClassObject function creates multiple objects based on a single CLSID
+the GetActiveObject function connects to an object that is already created and running.
+
+
+
+
+    
+    
+
+
+
+
+
+
+
