@@ -20,10 +20,24 @@ the CoCreateInstance function creates one instance of the specified CLSID and re
 the CoGetClassObject function creates multiple objects based on a single CLSID
 the GetActiveObject function connects to an object that is already created and running.
 
+2018/12/7
+COM: component object model
+COM specifies an object model and programming requirements that enable COM objects to interact with other objects.
+COM is referred to as a binary standard, a standard that applies after a program has been translated to binary machine code.
 
+Language requirement: can create structures of pointers and, either explicitly or implicitly, call functions through pointers.
 
+A COM object exposes its features through an interface, which is a collection of member functions.
+Interfaces have its own unique interface identifier, named an IID == GUID == UUID
 
-    
+Create an interface definition by using the interface definition language(IDL), Microsoft IDL compiler generates header files for use by applications using the interface, and source code to handle remote procedure calls.
+
+Can not create an instance of a COM interface, you can create an instance of a class that implements the interface.
+A COM class is identified by using a unique 128-bit Class ID(CLSID) that associates a class with a particular deployment in the file system, which for windows is a DLL or EXE.
+
+All COM interfaces inherit from the IUnKnown interface which has three mumber functions: 
+1.  QueryInterface: provides polymorphism for COM. call this to determine at run time whether a COM object supports a particular interface.
+
     
 
 
